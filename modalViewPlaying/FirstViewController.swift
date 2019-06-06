@@ -8,27 +8,41 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, SecondViewControllerDelegate {
+class FirstViewController: UIViewController {
     
-    
-    func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton) {
-        dismiss(animated: true, completion: nil)
-        present(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func firstButtonTapped(_ sender: UIButton) {
-        guard case let secondViewController as SecondViewController = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") else{
-            return
-        }
-        secondViewController.delegate = self
-        present(secondViewController, animated: true, completion: nil)
-    }
+    private var isFirstTime = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirstTime{
+            isFirstTime = false
+            return
+        }
+        showSecondViewController()
+    }
+    
+    @IBAction func firstButtonTapped(_ sender: UIButton) {
+        showSecondViewController()
+    }
+    
+    private func showSecondViewController(){
+        guard let secondViewController  = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else{
+            return
+        }
+        secondViewController.delegate = self
+        present(secondViewController, animated: true, completion: nil)
+    }
 
+}
 
+extension FirstViewController: SecondViewControllerDelegate{
+    func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
