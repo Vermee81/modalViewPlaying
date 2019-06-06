@@ -23,7 +23,7 @@
                                 <rect key="frame" x="122" y="318.5" width="131" height="30"/>
                                 <state key="normal" title="showSecondModal"/>
                                 <connections>
-                                    <segue destination="aNY-7a-kwd" kind="presentation" id="U6x-RX-eEo"/>
+                                    <action selector="firstButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qVu-rG-rxr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,7 +41,7 @@
         <!--Second View Controller-->
         <scene sceneID="BLV-d5-gjE">
             <objects>
-                <viewController id="aNY-7a-kwd" customClass="SecondViewController" customModule="modalViewPlaying" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="aNY-7a-kwd" customClass="SecondViewController" customModule="modalViewPlaying" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z5Q-pZ-We2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,11 +52,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-yX-57p">
+                                <rect key="frame" x="164.5" y="318.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="aNY-7a-kwd" eventType="touchUpInside" id="jo6-Qm-a2j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pR4-XW-Nlj" firstAttribute="top" secondItem="ZK4-W2-Fnl" secondAttribute="top" constant="77" id="2Hp-xe-e8O"/>
                             <constraint firstItem="pR4-XW-Nlj" firstAttribute="centerX" secondItem="z5Q-pZ-We2" secondAttribute="centerX" id="K8h-sD-rNi"/>
+                            <constraint firstItem="wTu-yX-57p" firstAttribute="centerX" secondItem="z5Q-pZ-We2" secondAttribute="centerX" id="c9b-yh-G3n"/>
+                            <constraint firstItem="wTu-yX-57p" firstAttribute="centerY" secondItem="z5Q-pZ-We2" secondAttribute="centerY" id="dPG-51-3CP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZK4-W2-Fnl"/>
                     </view>
