@@ -13,6 +13,7 @@ class FirstViewController: UIViewController, SecondViewControllerDelegate {
     
     func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton) {
         dismiss(animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func firstButtonTapped(_ sender: UIButton) {
